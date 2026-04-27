@@ -58,12 +58,14 @@ class AI_Smart_Chatbot {
         require_once AISC_PLUGIN_DIR . 'includes/class-aisc-api-client.php';
         require_once AISC_PLUGIN_DIR . 'includes/class-aisc-knowledge-base.php';
         require_once AISC_PLUGIN_DIR . 'includes/class-aisc-embeddings.php';
+        require_once AISC_PLUGIN_DIR . 'includes/class-aisc-i18n.php';
         require_once AISC_PLUGIN_DIR . 'admin/class-aisc-admin.php';
 
         $this->settings = new AISC_Settings();
         $this->api_client = new AISC_API_Client();
         $this->knowledge_base = new AISC_Knowledge_Base($this->api_client);
         $this->admin = new AISC_Admin($this->settings, $this->knowledge_base, $this->api_client);
+        $this->i18n = new AISC_i18n();
     }
 
     public function load_textdomain() {

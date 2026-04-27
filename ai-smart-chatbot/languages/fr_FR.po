@@ -1,0 +1,98 @@
+<?php
+/**
+ * French translations for AI Smart Chatbot
+ */
+return array(
+    'plugin_name' => 'AI Smart Chatbot',
+    'plugin_description' => 'Un chatbot IA hautement personnalisable avec système RAG',
+    
+    // Admin Menu
+    'dashboard' => 'Tableau de bord',
+    'ai_settings' => 'Paramètres IA',
+    'knowledge_base' => 'Base de connaissances',
+    'design' => 'Design',
+    'conversations' => 'Conversations',
+    'analytics' => 'Analytique',
+    
+    // Dashboard
+    'status' => 'Statut',
+    'connected' => 'Connecté',
+    'disconnected' => 'Déconnecté',
+    'documents' => 'Documents',
+    'chunks' => 'Extraits',
+    'categories' => 'Catégories',
+    'quick_actions' => 'Actions rapides',
+    'add_knowledge' => 'Ajouter connaissances',
+    'configure_ai' => 'Configurer IA',
+    'customize_design' => 'Personnaliser le design',
+    
+    // AI Settings
+    'backend_url' => 'URL du Backend',
+    'backend_url_desc' => "L'URL de votre API backend IA",
+    'ai_provider' => 'Fournisseur IA',
+    'api_key' => 'Clé API',
+    'model' => 'Modèle',
+    'model_desc' => 'ex: gpt-3.5-turbo, gpt-4, claude-3-sonnet',
+    'temperature' => 'Température',
+    'temperature_desc' => 'Contrôle le randomness (0 = focalisé, 2 = créatif)',
+    'ai_tone' => 'Ton IA',
+    'professional' => 'Professionnel',
+    'friendly' => 'Amical',
+    'sales' => 'Commercial',
+    'technical' => 'Technique',
+    'save_changes' => 'Enregistrer les modifications',
+    
+    // Knowledge Base
+    'upload_files' => 'Téléverser fichiers',
+    'add_urls' => 'Ajouter URLs',
+    'manual_input' => 'Saisie manuelle',
+    'upload_documents' => 'Téléverser documents',
+    'train_from_urls' => 'Entraîner depuis URLs',
+    'add_manual_content' => 'Ajouter contenu manuel',
+    'enter_urls' => "Entrez une URL par ligne",
+    'crawl_depth' => 'Profondeur de crawling',
+    'category' => 'Catégorie',
+    'documents_cat' => 'Documents',
+    'faq' => 'FAQ',
+    'products' => 'Produits',
+    'retrain_all' => 'Ré-entraîner tout',
+    'clear_kb' => 'Vider la base de connaissances',
+    
+    // Design Settings
+    'widget_style' => 'Style du widget',
+    'chat_bubble' => 'Bulle de chat',
+    'fullscreen' => 'Plein écran',
+    'sidebar' => 'Barre latérale',
+    'position' => 'Position',
+    'bottom_right' => 'Bas droite',
+    'bottom_left' => 'Bas gauche',
+    'top_right' => 'Haut droite',
+    'top_left' => 'Haut gauche',
+    'primary_color' => 'Couleur principale',
+    'secondary_color' => 'Couleur secondaire',
+    'chat_title' => 'Titre du chat',
+    'greeting_message' => 'Message de bienvenida',
+    'avatar_url' => 'URL de l\'avatar',
+    'enable_dark_mode' => 'Activer le mode sombre par défaut',
+    
+    // Chat Widget
+    'type_message' => 'Tapez votre message...',
+    'send' => 'Envoyer',
+    'open_chat' => 'Ouvrir le chat',
+    'send_message' => 'Envoyer le message',
+    'error_occurred' => 'Désolé, une erreur est survenue.',
+    'no_information' => "Je n'ai pas cette information",
+    
+    // Status Messages
+    'upload_success' => 'Fichier téléversé avec succès',
+    'upload_error' => 'Erreur lors du téléversement',
+    'training_success' => 'Entraînement terminé avec succès',
+    'training_error' => "Erreur pendant l'entraînement",
+    'saved_success' => 'Paramètres enregistrés avec succès',
+    
+    // Analytics
+    'top_questions' => 'Questions fréquentes',
+    'usage_stats' => "Statistiques d'utilisation",
+    'total_conversations' => 'Conversations totales',
+    'avg_response_time' => 'Temps de réponse moyen',
+);

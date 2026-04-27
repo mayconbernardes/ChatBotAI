@@ -1,0 +1,98 @@
+<?php
+/**
+ * English translations for AI Smart Chatbot
+ */
+return array(
+    'plugin_name' => 'AI Smart Chatbot',
+    'plugin_description' => 'A highly customizable AI chatbot with RAG system',
+    
+    // Admin Menu
+    'dashboard' => 'Dashboard',
+    'ai_settings' => 'AI Settings',
+    'knowledge_base' => 'Knowledge Base',
+    'design' => 'Design',
+    'conversations' => 'Conversations',
+    'analytics' => 'Analytics',
+    
+    // Dashboard
+    'status' => 'Status',
+    'connected' => 'Connected',
+    'disconnected' => 'Disconnected',
+    'documents' => 'Documents',
+    'chunks' => 'Chunks',
+    'categories' => 'Categories',
+    'quick_actions' => 'Quick Actions',
+    'add_knowledge' => 'Add Knowledge',
+    'configure_ai' => 'Configure AI',
+    'customize_design' => 'Customize Design',
+    
+    // AI Settings
+    'backend_url' => 'Backend URL',
+    'backend_url_desc' => 'The URL of your AI backend API',
+    'ai_provider' => 'AI Provider',
+    'api_key' => 'API Key',
+    'model' => 'Model',
+    'model_desc' => 'e.g., gpt-3.5-turbo, gpt-4, claude-3-sonnet',
+    'temperature' => 'Temperature',
+    'temperature_desc' => 'Control randomness (0 = focused, 2 = creative)',
+    'ai_tone' => 'AI Tone',
+    'professional' => 'Professional',
+    'friendly' => 'Friendly',
+    'sales' => 'Sales',
+    'technical' => 'Technical',
+    'save_changes' => 'Save Changes',
+    
+    // Knowledge Base
+    'upload_files' => 'Upload Files',
+    'add_urls' => 'Add URLs',
+    'manual_input' => 'Manual Input',
+    'upload_documents' => 'Upload Documents',
+    'train_from_urls' => 'Train from URLs',
+    'add_manual_content' => 'Add Manual Content',
+    'enter_urls' => 'Enter one URL per line',
+    'crawl_depth' => 'Crawl depth',
+    'category' => 'Category',
+    'documents_cat' => 'Documents',
+    'faq' => 'FAQ',
+    'products' => 'Products',
+    'retrain_all' => 'Re-train All',
+    'clear_kb' => 'Clear Knowledge Base',
+    
+    // Design Settings
+    'widget_style' => 'Widget Style',
+    'chat_bubble' => 'Chat Bubble',
+    'fullscreen' => 'Fullscreen',
+    'sidebar' => 'Sidebar',
+    'position' => 'Position',
+    'bottom_right' => 'Bottom Right',
+    'bottom_left' => 'Bottom Left',
+    'top_right' => 'Top Right',
+    'top_left' => 'Top Left',
+    'primary_color' => 'Primary Color',
+    'secondary_color' => 'Secondary Color',
+    'chat_title' => 'Chat Title',
+    'greeting_message' => 'Greeting Message',
+    'avatar_url' => 'Avatar URL',
+    'enable_dark_mode' => 'Enable dark mode by default',
+    
+    // Chat Widget
+    'type_message' => 'Type your message...',
+    'send' => 'Send',
+    'open_chat' => 'Open chat',
+    'send_message' => 'Send message',
+    'error_occurred' => 'Sorry, something went wrong.',
+    'no_information' => "I don't have that information",
+    
+    // Status Messages
+    'upload_success' => 'File uploaded successfully',
+    'upload_error' => 'Error uploading file',
+    'training_success' => 'Training completed successfully',
+    'training_error' => 'Error during training',
+    'saved_success' => 'Settings saved successfully',
+    
+    // Analytics
+    'top_questions' => 'Top Questions',
+    'usage_stats' => 'Usage Statistics',
+    'total_conversations' => 'Total Conversations',
+    'avg_response_time' => 'Avg Response Time',
+);

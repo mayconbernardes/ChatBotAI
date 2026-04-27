@@ -1,0 +1,98 @@
+<?php
+/**
+ * Portuguese (Brazil) translations for AI Smart Chatbot
+ */
+return array(
+    'plugin_name' => 'AI Smart Chatbot',
+    'plugin_description' => 'Um chatbot de IA altamente personalizável com sistema RAG',
+    
+    // Admin Menu
+    'dashboard' => 'Painel',
+    'ai_settings' => 'Configurações de IA',
+    'knowledge_base' => 'Base de Conhecimento',
+    'design' => 'Design',
+    'conversations' => 'Conversas',
+    'analytics' => 'Análises',
+    
+    // Dashboard
+    'status' => 'Status',
+    'connected' => 'Conectado',
+    'disconnected' => 'Desconectado',
+    'documents' => 'Documentos',
+    'chunks' => 'Trechos',
+    'categories' => 'Categorias',
+    'quick_actions' => 'Ações Rápidas',
+    'add_knowledge' => 'Adicionar Conhecimento',
+    'configure_ai' => 'Configurar IA',
+    'customize_design' => 'Personalizar Design',
+    
+    // AI Settings
+    'backend_url' => 'URL do Backend',
+    'backend_url_desc' => 'A URL da sua API de backend de IA',
+    'ai_provider' => 'Provedor de IA',
+    'api_key' => 'Chave API',
+    'model' => 'Modelo',
+    'model_desc' => 'ex: gpt-3.5-turbo, gpt-4, claude-3-sonnet',
+    'temperature' => 'Temperatura',
+    'temperature_desc' => 'Controla a aleatoriedade (0 = focado, 2 = criativo)',
+    'ai_tone' => 'Tom da IA',
+    'professional' => 'Profissional',
+    'friendly' => 'Amigável',
+    'sales' => 'Vendas',
+    'technical' => 'Técnico',
+    'save_changes' => 'Salvar Alterações',
+    
+    // Knowledge Base
+    'upload_files' => 'Enviar Arquivos',
+    'add_urls' => 'Adicionar URLs',
+    'manual_input' => 'Entrada Manual',
+    'upload_documents' => 'Enviar Documentos',
+    'train_from_urls' => 'Treinar por URLs',
+    'add_manual_content' => 'Adicionar Conteúdo Manual',
+    'enter_urls' => 'Digite uma URL por linha',
+    'crawl_depth' => 'Profundidade do crawling',
+    'category' => 'Categoria',
+    'documents_cat' => 'Documentos',
+    'faq' => 'FAQ',
+    'products' => 'Produtos',
+    'retrain_all' => 'Re-treinar Tudo',
+    'clear_kb' => 'Limpar Base de Conhecimento',
+    
+    // Design Settings
+    'widget_style' => 'Estilo do Widget',
+    'chat_bubble' => 'Bolha de Chat',
+    'fullscreen' => 'Tela Cheia',
+    'sidebar' => 'Barra Lateral',
+    'position' => 'Posição',
+    'bottom_right' => 'Inferior Direita',
+    'bottom_left' => 'Inferior Esquerda',
+    'top_right' => 'Superior Direita',
+    'top_left' => 'Superior Esquerda',
+    'primary_color' => 'Cor Principal',
+    'secondary_color' => 'Cor Secundária',
+    'chat_title' => 'Título do Chat',
+    'greeting_message' => 'Mensagem de Boas-vindas',
+    'avatar_url' => 'URL do Avatar',
+    'enable_dark_mode' => 'Ativar modo escuro por padrão',
+    
+    // Chat Widget
+    'type_message' => 'Digite sua mensagem...',
+    'send' => 'Enviar',
+    'open_chat' => 'Abrir chat',
+    'send_message' => 'Enviar mensagem',
+    'error_occurred' => 'Desculpe, algo deu errado.',
+    'no_information' => "Eu não tenho essa informação",
+    
+    // Status Messages
+    'upload_success' => 'Arquivo enviado com sucesso',
+    'upload_error' => 'Erro ao enviar arquivo',
+    'training_success' => 'Treinamento concluído com sucesso',
+    'training_error' => 'Erro durante o treinamento',
+    'saved_success' => 'Configurações salvas com sucesso',
+    
+    // Analytics
+    'top_questions' => 'Perguntas Frequentes',
+    'usage_stats' => 'Estatísticas de Uso',
+    'total_conversations' => 'Total de Conversas',
+    'avg_response_time' => 'Tempo Médio de Resposta',
+);
