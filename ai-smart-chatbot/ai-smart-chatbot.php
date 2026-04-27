@@ -51,7 +51,7 @@ class AI_Smart_Chatbot {
         require_once AISC_PLUGIN_DIR . 'includes/class-aisc-openai.php';
         require_once AISC_PLUGIN_DIR . 'admin/class-aisc-admin.php';
 
-        $this->openai = new AISC_OpenAI();
+        $this->openai = new AISC_AI_Provider();
         $this->admin = new AISC_Admin($this->openai);
     }
 

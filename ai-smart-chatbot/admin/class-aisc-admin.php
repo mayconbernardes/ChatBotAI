@@ -2,11 +2,11 @@
 
 class AISC_Admin {
 
-    private $openai;
+    private $ai_provider;
     private $menu_slug = 'ai-smart-chatbot';
 
-    public function __construct($openai) {
-        $this->openai = $openai;
+    public function __construct($ai_provider) {
+        $this->ai_provider = $ai_provider;
         add_action('admin_menu', array($this, 'add_menu_pages'));
         add_action('admin_post_aisc_save_settings', array($this, 'save_settings'));
     }
@@ -26,6 +26,7 @@ class AISC_Admin {
     public function render_settings() {
         $api_key = get_option('aisc_api_key', '');
         $is_configured = !empty($api_key);
+        $provider = get_option('aisc_ai_provider', 'openai');
         ?>
         <div class="wrap">
             <h1><?php esc_html_e('AI Smart Chatbot', 'ai-smart-chatbot'); ?></h1>
@@ -38,7 +39,7 @@ class AISC_Admin {
             
             <?php if (!$is_configured): ?>
             <div class="notice notice-warning">
-                <p><?php esc_html_e('Please add your OpenAI API key to activate the chatbot.', 'ai-smart-chatbot'); ?></p>
+                <p><?php esc_html_e('Please add your API key to activate the chatbot.', 'ai-smart-chatbot'); ?></p>
             </div>
             <?php endif; ?>
             
@@ -46,23 +47,38 @@ class AISC_Admin {
                 <input type="hidden" name="action" value="aisc_save_settings">
                 <?php wp_nonce_field('aisc_save_settings'); ?>
                 
-                <h2><?php esc_html_e('API Configuration', 'ai-smart-chatbot'); ?></h2>
+                <h2><?php esc_html_e('AI Provider', 'ai-smart-chatbot'); ?></h2>
                 <table class="form-table">
                     <tr>
-                        <th><?php esc_html_e('OpenAI API Key', 'ai-smart-chatbot'); ?></th>
+                        <th><?php esc_html_e('Select Provider', 'ai-smart-chatbot'); ?></th>
                         <td>
-                            <input type="password" name="aisc_api_key" value="<?php echo esc_attr($api_key); ?>" class="regular-text" placeholder="sk-...">
-                            <p class="description"><?php esc_html_e('Get your API key from OpenAI dashboard', 'ai-smart-chatbot'); ?></p>
+                            <select name="aisc_ai_provider" id="aisc-provider">
+                                <option value="openai" <?php selected($provider, 'openai'); ?>>OpenAI (GPT)</option>
+                                <option value="google" <?php selected($provider, 'google'); ?>>Google Gemini</option>
+                                <option value="anthropic" <?php selected($provider, 'anthropic'); ?>>Anthropic Claude</option>
+                                <option value="xai" <?php selected($provider, 'xai'); ?>>xAI Grok</option>
+                                <option value="deepseek" <?php selected($provider, 'deepseek'); ?>>DeepSeek</option>
+                                <option value="qwen" <?php selected($provider, 'qwen'); ?>>Alibaba Qwen</option>
+                                <option value="openrouter" <?php selected($provider, 'openrouter'); ?>>OpenRouter (multi-model)</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><?php esc_html_e('API Key', 'ai-smart-chatbot'); ?></th>
+                        <td>
+                            <input type="password" name="aisc_api_key" value="<?php echo esc_attr($api_key); ?>" class="regular-text" placeholder="API key...">
+                            <p class="description" id="api-key-desc"><?php esc_html_e('Get your API key from the provider dashboard', 'ai-smart-chatbot'); ?></p>
                         </td>
                     </tr>
                     <tr>
                         <th><?php esc_html_e('Model', 'ai-smart-chatbot'); ?></th>
                         <td>
-                            <select name="aisc_model">
+                            <select name="aisc_model" id="aisc-model">
                                 <option value="gpt-4o" <?php selected(get_option('aisc_model'), 'gpt-4o'); ?>>GPT-4o</option>
                                 <option value="gpt-4-turbo" <?php selected(get_option('aisc_model'), 'gpt-4-turbo'); ?>>GPT-4 Turbo</option>
                                 <option value="gpt-3.5-turbo" <?php selected(get_option('aisc_model', 'gpt-3.5-turbo'), 'gpt-3.5-turbo'); ?>>GPT-3.5 Turbo</option>
                             </select>
+                            <p class="description"><?php esc_html_e('Available models depend on provider', 'ai-smart-chatbot'); ?></p>
                         </td>
                     </tr>
                     <tr>
@@ -149,6 +165,7 @@ class AISC_Admin {
         }
 
         $settings = array(
+            'aisc_ai_provider',
             'aisc_api_key',
             'aisc_model',
             'aisc_ai_tone',
