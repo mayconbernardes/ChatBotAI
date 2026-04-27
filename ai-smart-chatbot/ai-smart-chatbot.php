@@ -39,12 +39,33 @@ class AI_Smart_Chatbot {
         $this->load_classes();
     }
 
-    private function init_hooks() {
+private function init_hooks() {
         add_action('wp_enqueue_scripts', array($this, 'enqueue_public_assets'));
         add_action('admin_enqueue_scripts', array($this, 'enqueue_admin_assets'));
         add_action('wp_ajax_aisc_chat', array($this, 'handle_chat'));
         add_action('wp_ajax_nopriv_aisc_chat', array($this, 'handle_chat'));
-        add_action('wp_footer', array($this, 'render_chat_widget'));
+        
+        // Try footer first
+        add_action('wp_footer', array($this, 'render_chat_widget'), 999);
+        
+        // Fallback: also try wp_print_footer_scripts
+        add_action('wp_print_footer_scripts', array($this, 'render_chat_widget'), 999);
+        
+        // Emergency fallback: wp_head as last resort
+        add_action('wp_head', array($this, 'render_chat_widget_emergency'), 999);
+    }
+
+    public function render_chat_widget_emergency() {
+        // Only output if no footer was called
+        if (!did_action('wp_footer')) {
+            $this->render_chat_widget();
+        }
+    }
+
+    public function force_footer_output() {
+        if (!has_action('wp_footer', array($this, 'render_chat_widget'))) {
+            add_action('wp_footer', array($this, 'render_chat_widget'), 999);
+        }
     }
 
     private function load_classes() {
@@ -56,6 +77,7 @@ class AI_Smart_Chatbot {
     }
 
     public function enqueue_public_assets() {
+        // Always load assets for widget
         wp_enqueue_style(
             'aisc-chatbot',
             AISC_PLUGIN_URL . 'public/css/chatbot.css',
@@ -150,6 +172,9 @@ class AI_Smart_Chatbot {
     }
 
     public function render_chat_widget() {
+        // Debug: check if function is called
+        error_log('AI Smart Chatbot: Widget rendering');
+        
         $settings = $this->get_frontend_settings();
         ?>
         <div id="aisc-widget" class="aisc-widget" data-position="<?php echo esc_attr($settings['position']); ?>">
