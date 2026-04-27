@@ -9,7 +9,17 @@ class AISC_Knowledge_Base {
     }
 
     public function get_stats() {
-        return $this->api_client->get_knowledge_stats();
+        $result = $this->api_client->get_knowledge_stats();
+        
+        if (is_wp_error($result)) {
+            return array(
+                'total_documents' => 0,
+                'total_chunks' => 0,
+                'categories' => array()
+            );
+        }
+        
+        return $result;
     }
 
     public function add_urls($urls, $max_depth = 2) {

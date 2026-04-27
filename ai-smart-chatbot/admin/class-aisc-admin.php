@@ -71,9 +71,23 @@ class AISC_Admin {
     public function render_dashboard() {
         $stats = $this->knowledge_base->get_stats();
         $connection_status = $this->api_client->test_connection();
+        
+        $total_documents = 0;
+        $total_chunks = 0;
+        
+        if (is_array($stats)) {
+            $total_documents = isset($stats['total_documents']) ? $stats['total_documents'] : 0;
+            $total_chunks = isset($stats['total_chunks']) ? $stats['total_chunks'] : 0;
+        }
         ?>
         <div class="wrap">
             <h1><?php esc_html_e('AI Smart Chatbot', 'ai-smart-chatbot'); ?></h1>
+            
+            <?php if (!$connection_status): ?>
+            <div class="notice notice-warning">
+                <p><?php esc_html_e('Backend API is not connected. Please configure the backend URL in AI Settings.', 'ai-smart-chatbot'); ?></p>
+            </div>
+            <?php endif; ?>
             
             <div class="aisc-admin-cards">
                 <div class="aisc-card">
@@ -86,13 +100,13 @@ class AISC_Admin {
 
                 <div class="aisc-card">
                     <h3><?php esc_html_e('Documents', 'ai-smart-chatbot'); ?></h3>
-                    <p class="aisc-stat-number"><?php echo isset($stats['total_documents']) ? $stats['total_documents'] : 0; ?></p>
+                    <p class="aisc-stat-number"><?php echo $total_documents; ?></p>
                     <p><?php esc_html_e('Total documents in knowledge base', 'ai-smart-chatbot'); ?></p>
                 </div>
 
                 <div class="aisc-card">
                     <h3><?php esc_html_e('Chunks', 'ai-smart-chatbot'); ?></h3>
-                    <p class="aisc-stat-number"><?php echo isset($stats['total_chunks']) ? $stats['total_chunks'] : 0; ?></p>
+                    <p class="aisc-stat-number"><?php echo $total_chunks; ?></p>
                     <p><?php esc_html_e('Text chunks indexed', 'ai-smart-chatbot'); ?></p>
                 </div>
 
