@@ -186,4 +186,18 @@ function AISC() {
     return AI_Smart_Chatbot::get_instance();
 }
 
+register_activation_hook(__FILE__, 'aisc_activate');
+
+function aisc_activate() {
+    add_option('aisc_enabled', true);
+    add_option('aisc_position', 'bottom-right');
+    add_option('aisc_display_mode', 'floating');
+    add_option('aisc_initial_state', 'closed');
+    add_option('aisc_primary_color', '#0073aa');
+    add_option('aisc_secondary_color', '#ffffff');
+    add_option('aisc_chat_title', 'AI Assistant');
+    add_option('aisc_greeting', 'Hello! How can I help you?');
+    add_option('aisc_dark_mode', false);
+}
+
 add_action('plugins_loaded', 'AISC');
