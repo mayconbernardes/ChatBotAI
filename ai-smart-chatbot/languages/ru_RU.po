@@ -1,0 +1,98 @@
+<?php
+/**
+ * Russian translations for AI Smart Chatbot
+ */
+return array(
+    'plugin_name' => 'AI Умный Чат-бот',
+    'plugin_description' => 'Высоконастраиваемый AI чат-бот с системой RAG',
+    
+    // Admin Menu
+    'dashboard' => 'Панель управления',
+    'ai_settings' => 'Настройки AI',
+    'knowledge_base' => 'База знаний',
+    'design' => 'Дизайн',
+    'conversations' => 'Разговоры',
+    'analytics' => 'Аналитика',
+    
+    // Dashboard
+    'status' => 'Статус',
+    'connected' => 'Подключено',
+    'disconnected' => 'Отключено',
+    'documents' => 'Документы',
+    'chunks' => 'Фрагменты',
+    'categories' => 'Категории',
+    'quick_actions' => 'Быстрые действия',
+    'add_knowledge' => 'Добавить знания',
+    'configure_ai' => 'Настроить AI',
+    'customize_design' => 'Настроить дизайн',
+    
+    // AI Settings
+    'backend_url' => 'URL бэкенда',
+    'backend_url_desc' => 'URL вашего AI бэкенд API',
+    'ai_provider' => 'AI провайдер',
+    'api_key' => 'API ключ',
+    'model' => 'Модель',
+    'model_desc' => 'например: gpt-3.5-turbo, gpt-4, claude-3-sonnet',
+    'temperature' => 'Температура',
+    'temperature_desc' => 'Контроль случайности (0 = сфокусированный, 2 = креативный)',
+    'ai_tone' => 'Тон AI',
+    'professional' => 'Профессиональный',
+    'friendly' => 'Дружелюбный',
+    'sales' => 'Продажи',
+    'technical' => 'Технический',
+    'save_changes' => 'Сохранить изменения',
+    
+    // Knowledge Base
+    'upload_files' => 'Загрузить файлы',
+    'add_urls' => 'Добавить URL',
+    'manual_input' => 'Ручной ввод',
+    'upload_documents' => 'Загрузить документы',
+    'train_from_urls' => 'Обучить по URL',
+    'add_manual_content' => 'Добавить контент вручную',
+    'enter_urls' => 'Введите один URL на строку',
+    'crawl_depth' => 'Глубина сканирования',
+    'category' => 'Категория',
+    'documents_cat' => 'Документы',
+    'faq' => 'FAQ',
+    'products' => 'Товары',
+    'retrain_all' => 'Переобучить всё',
+    'clear_kb' => 'Очистить базу знаний',
+    
+    // Design Settings
+    'widget_style' => 'Стиль виджета',
+    'chat_bubble' => 'Пузырь чата',
+    'fullscreen' => 'Полный экран',
+    'sidebar' => 'Боковая панель',
+    'position' => 'Позиция',
+    'bottom_right' => 'Низ справа',
+    'bottom_left' => 'Низ слева',
+    'top_right' => 'Верх справа',
+    'top_left' => 'Верх слева',
+    'primary_color' => 'Основной цвет',
+    'secondary_color' => 'Вторичный цвет',
+    'chat_title' => 'Название чата',
+    'greeting_message' => 'Приветственное сообщение',
+    'avatar_url' => 'URL аватара',
+    'enable_dark_mode' => 'Включить тёмный режим по умолчанию',
+    
+    // Chat Widget
+    'type_message' => 'Введите ваше сообщение...',
+    'send' => 'Отправить',
+    'open_chat' => 'Открыть чат',
+    'send_message' => 'Отправить сообщение',
+    'error_occurred' => 'Извините, произошла ошибка.',
+    'no_information' => "У меня нет этой информации",
+    
+    // Status Messages
+    'upload_success' => 'Файл успешно загружен',
+    'upload_error' => 'Ошибка загрузки файла',
+    'training_success' => 'Обучение успешно завершено',
+    'training_error' => 'Ошибка при обучении',
+    'saved_success' => 'Настройки сохранены',
+    
+    // Analytics
+    'top_questions' => 'Популярные вопросы',
+    'usage_stats' => 'Статистика использования',
+    'total_conversations' => 'Всего разговоров',
+    'avg_response_time' => 'Среднее время ответа',
+);

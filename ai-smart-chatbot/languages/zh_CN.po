@@ -1,0 +1,98 @@
+<?php
+/**
+ * Chinese (Simplified) translations for AI Smart Chatbot
+ */
+return array(
+    'plugin_name' => 'AI智能聊天机器人',
+    'plugin_description' => '一个具有RAG系统的高度可定制的AI聊天机器人',
+    
+    // Admin Menu
+    'dashboard' => '仪表板',
+    'ai_settings' => 'AI设置',
+    'knowledge_base' => '知识库',
+    'design' => '设计',
+    'conversations' => '对话',
+    'analytics' => '分析',
+    
+    // Dashboard
+    'status' => '状态',
+    'connected' => '已连接',
+    'disconnected' => '已断开',
+    'documents' => '文档',
+    'chunks' => '片段',
+    'categories' => '类别',
+    'quick_actions' => '快速操作',
+    'add_knowledge' => '添加知识',
+    'configure_ai' => '配置AI',
+    'customize_design' => '自定义设计',
+    
+    // AI Settings
+    'backend_url' => '后端URL',
+    'backend_url_desc' => '您的AI后端API URL',
+    'ai_provider' => 'AI提供商',
+    'api_key' => 'API密钥',
+    'model' => '模型',
+    'model_desc' => '例如: gpt-3.5-turbo, gpt-4, claude-3-sonnet',
+    'temperature' => '温度',
+    'temperature_desc' => '控制随机性 (0 = 聚焦, 2 = 创意)',
+    'ai_tone' => 'AI语调',
+    'professional' => '专业',
+    'friendly' => '友好',
+    'sales' => '销售',
+    'technical' => '技术',
+    'save_changes' => '保存更改',
+    
+    // Knowledge Base
+    'upload_files' => '上传文件',
+    'add_urls' => '添加URL',
+    'manual_input' => '手动输入',
+    'upload_documents' => '上传文档',
+    'train_from_urls' => '从URL训练',
+    'add_manual_content' => '添加手动内容',
+    'enter_urls' => '每行输入一个URL',
+    'crawl_depth' => '爬取深度',
+    'category' => '类别',
+    'documents_cat' => '文档',
+    'faq' => '常见问题',
+    'products' => '产品',
+    'retrain_all' => '重新训练全部',
+    'clear_kb' => '清空知识库',
+    
+    // Design Settings
+    'widget_style' => '小部件样式',
+    'chat_bubble' => '聊天气泡',
+    'fullscreen' => '全屏',
+    'sidebar' => '侧边栏',
+    'position' => '位置',
+    'bottom_right' => '右下角',
+    'bottom_left' => '左下角',
+    'top_right' => '右上角',
+    'top_left' => '左上角',
+    'primary_color' => '主色',
+    'secondary_color' => '次色',
+    'chat_title' => '聊天标题',
+    'greeting_message' => '问候消息',
+    'avatar_url' => '头像URL',
+    'enable_dark_mode' => '默认启用深色模式',
+    
+    // Chat Widget
+    'type_message' => '输入您的消息...',
+    'send' => '发送',
+    'open_chat' => '打开聊天',
+    'send_message' => '发送消息',
+    'error_occurred' => '抱歉，出现了错误。',
+    'no_information' => '我没有这个信息',
+    
+    // Status Messages
+    'upload_success' => '文件上传成功',
+    'upload_error' => '上传文件时出错',
+    'training_success' => '训练成功完成',
+    'training_error' => '训练时出错',
+    'saved_success' => '设置保存成功',
+    
+    // Analytics
+    'top_questions' => '热门问题',
+    'usage_stats' => '使用统计',
+    'total_conversations' => '总对话数',
+    'avg_response_time' => '平均响应时间',
+);

@@ -1,0 +1,98 @@
+<?php
+/**
+ * Spanish translations for AI Smart Chatbot
+ */
+return array(
+    'plugin_name' => 'AI Smart Chatbot',
+    'plugin_description' => 'Un chatbot de IA altamente personalizable con sistema RAG',
+    
+    // Admin Menu
+    'dashboard' => 'Panel',
+    'ai_settings' => 'Configuración de IA',
+    'knowledge_base' => 'Base de conocimientos',
+    'design' => 'Diseño',
+    'conversations' => 'Conversaciones',
+    'analytics' => 'Analíticas',
+    
+    // Dashboard
+    'status' => 'Estado',
+    'connected' => 'Conectado',
+    'disconnected' => 'Desconectado',
+    'documents' => 'Documentos',
+    'chunks' => 'Fragmentos',
+    'categories' => 'Categorías',
+    'quick_actions' => 'Acciones rápidas',
+    'add_knowledge' => 'Añadir conocimiento',
+    'configure_ai' => 'Configurar IA',
+    'customize_design' => 'Personalizar diseño',
+    
+    // AI Settings
+    'backend_url' => 'URL del Backend',
+    'backend_url_desc' => 'La URL de tu API de backend de IA',
+    'ai_provider' => 'Proveedor de IA',
+    'api_key' => 'Clave API',
+    'model' => 'Modelo',
+    'model_desc' => 'ej: gpt-3.5-turbo, gpt-4, claude-3-sonnet',
+    'temperature' => 'Temperatura',
+    'temperature_desc' => 'Controla la aleatoriedad (0 = centrado, 2 = creativo)',
+    'ai_tone' => 'Tono de IA',
+    'professional' => 'Profesional',
+    'friendly' => 'Amigable',
+    'sales' => 'Ventas',
+    'technical' => 'Técnico',
+    'save_changes' => 'Guardar cambios',
+    
+    // Knowledge Base
+    'upload_files' => 'Subir archivos',
+    'add_urls' => 'Añadir URLs',
+    'manual_input' => 'Entrada manual',
+    'upload_documents' => 'Subir documentos',
+    'train_from_urls' => 'Entrenar desde URLs',
+    'add_manual_content' => 'Añadir contenido manual',
+    'enter_urls' => 'Introduce una URL por línea',
+    'crawl_depth' => 'Profundidad de rastreo',
+    'category' => 'Categoría',
+    'documents_cat' => 'Documentos',
+    'faq' => 'FAQ',
+    'products' => 'Productos',
+    'retrain_all' => 'Re-entrenar todo',
+    'clear_kb' => 'Limpiar base de conocimientos',
+    
+    // Design Settings
+    'widget_style' => 'Estilo del widget',
+    'chat_bubble' => 'Burbuja de chat',
+    'fullscreen' => 'Pantalla completa',
+    'sidebar' => 'Barra lateral',
+    'position' => 'Posición',
+    'bottom_right' => 'Abajo derecha',
+    'bottom_left' => 'Abajo izquierda',
+    'top_right' => 'Arriba derecha',
+    'top_left' => 'Arriba izquierda',
+    'primary_color' => 'Color principal',
+    'secondary_color' => 'Color secundario',
+    'chat_title' => 'Título del chat',
+    'greeting_message' => 'Mensaje de bienvenida',
+    'avatar_url' => 'URL del avatar',
+    'enable_dark_mode' => 'Activar modo oscuro por defecto',
+    
+    // Chat Widget
+    'type_message' => 'Escribe tu mensaje...',
+    'send' => 'Enviar',
+    'open_chat' => 'Abrir chat',
+    'send_message' => 'Enviar mensaje',
+    'error_occurred' => 'Lo sentimos, algo salió mal.',
+    'no_information' => "No tengo esa información",
+    
+    // Status Messages
+    'upload_success' => 'Archivo subido correctamente',
+    'upload_error' => 'Error al subir archivo',
+    'training_success' => 'Entrenamiento completado',
+    'training_error' => 'Error durante el entrenamiento',
+    'saved_success' => 'Configuración guardada',
+    
+    // Analytics
+    'top_questions' => 'Preguntas principales',
+    'usage_stats' => 'Estadísticas de uso',
+    'total_conversations' => 'Conversaciones totales',
+    'avg_response_time' => 'Tiempo de respuesta promedio',
+);

@@ -29,17 +29,47 @@ class AISC_i18n {
         return 'en_US';
     }
 
-    private function load_translations() {
+private function load_translations() {
         $lang_files = array(
-            'en_US' => plugin_dir_path(__FILE__) . 'languages/en_US.po',
-            'fr_FR' => plugin_dir_path(__FILE__) . 'languages/fr_FR.po',
-            'pt_BR' => plugin_dir_path(__FILE__) . 'languages/pt_BR.po',
+            'en_US' => plugin_dir_path(__FILE__) . '../languages/en_US.po',
+            'fr_FR' => plugin_dir_path(__FILE__) . '../languages/fr_FR.po',
+            'pt_BR' => plugin_dir_path(__FILE__) . '../languages/pt_BR.po',
+            'es_ES' => plugin_dir_path(__FILE__) . '../languages/es_ES.po',
+            'zh_CN' => plugin_dir_path(__FILE__) . '../languages/zh_CN.po',
+            'ru_RU' => plugin_dir_path(__FILE__) . '../languages/ru_RU.po',
+            'de_DE' => plugin_dir_path(__FILE__) . '../languages/de_DE.po',
         );
 
         foreach ($lang_files as $locale => $file) {
             if (file_exists($file)) {
                 $this->translations[$locale] = $this->parse_po_file($file);
             }
+        }
+    }
+
+    private function get_locale() {
+        $locale = get_locale();
+        
+        $available = array(
+            'en_US' => array('en', 'en_US'),
+            'fr_FR' => array('fr', 'fr_FR'),
+            'pt_BR' => array('pt', 'pt_BR', 'pt_PT'),
+            'es_ES' => array('es', 'es_ES', 'es_MX'),
+            'zh_CN' => array('zh', 'zh_CN', 'zh_TW'),
+            'ru_RU' => array('ru', 'ru_RU'),
+            'de_DE' => array('de', 'de_DE', 'de_AT', 'de_CH'),
+        );
+        
+        foreach ($available as $locale_code => $prefixes) {
+            foreach ($prefixes as $prefix) {
+                if (strpos($locale, $prefix) === 0) {
+                    return $locale_code;
+                }
+            }
+        }
+        
+        return 'en_US';
+    }
         }
     }
 
