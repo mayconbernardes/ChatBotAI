@@ -1,0 +1,244 @@
+This is my project specification:
+
+You are a senior full-stack engineer and AI architect specialized in WordPress plugin development, SaaS platforms, and LLM-based systems.
+
+Your task is to design and generate a professional, production-ready WordPress plugin called:
+
+"AI Smart Chatbot for WordPress"
+
+## 🎯 OBJECTIVE
+
+Build a highly customizable AI chatbot plugin that:
+- Answers ONLY based on the website’s content
+- Uses Retrieval-Augmented Generation (RAG)
+- Allows training via documents, URLs, and manual input
+- Supports multiple AI providers
+- Is designed to scale into a SaaS product
+
+---
+
+## 🧩 GLOBAL ARCHITECTURE
+
+You MUST separate the system into:
+
+### 1. WordPress Plugin (Frontend + Admin Dashboard)
+- PHP (WordPress standards)
+- JavaScript (React or vanilla for admin UI)
+- REST API calls to backend
+
+### 2. External Backend (IMPORTANT)
+- Use Python (FastAPI preferred) OR Node.js
+- Handles:
+  - AI requests
+  - Document processing
+  - Embeddings
+  - Vector search (RAG)
+
+---
+
+## 🤖 CHATBOT FEATURES
+
+### Core Behavior:
+- Answer ONLY using provided knowledge base
+- If no answer → respond: "I don’t have that information"
+- Multi-language support
+- Configurable tone:
+  - Professional
+  - Friendly
+  - Sales
+  - Technical
+
+---
+
+## 📚 KNOWLEDGE BASE SYSTEM
+
+Implement:
+
+### Upload Support:
+- PDF
+- DOCX
+- TXT
+- CSV
+
+### URL Training:
+- Crawl website pages
+- Parse HTML
+- Extract clean content
+
+### Manual Input:
+- Rich text editor
+- FAQ builder
+
+### Processing Pipeline:
+- Text chunking
+- Embeddings generation
+- Store in vector database
+
+---
+
+## 🧠 RAG SYSTEM
+
+Flow:
+
+1. User asks question
+2. Retrieve relevant chunks from vector DB
+3. Inject context into prompt
+4. Send to LLM
+5. Return contextual answer
+
+---
+
+## 🔌 AI PROVIDERS SUPPORT
+
+Allow dynamic selection:
+
+- OpenAI (ChatGPT)
+- Google Gemini
+- Anthropic Claude
+- xAI Grok
+- OpenRouter (multi-model gateway)
+
+Include:
+- API key field
+- Model selection
+- Temperature control
+
+---
+
+## 🎨 CHATBOT UI CUSTOMIZATION
+
+Provide multiple styles:
+
+- Chat bubble (like WhatsApp)
+- Fullscreen assistant
+- Sidebar widget
+
+Customization options:
+- Colors (primary, secondary)
+- Fonts
+- Avatar
+- Animations
+- Dark mode
+
+---
+
+## ⚙️ WORDPRESS ADMIN DASHBOARD
+
+Create sections:
+
+### 1. AI Settings
+- Provider selection
+- API key
+- Model config
+
+### 2. Knowledge Base
+- Upload files
+- Add URLs
+- Manual content editor
+- Re-train button
+
+### 3. Design Settings
+- UI customization
+- Live preview
+
+### 4. Conversations
+- Chat logs
+- Export (CSV)
+
+### 5. Analytics
+- Top questions
+- Usage stats
+
+---
+
+## 🔐 SECURITY
+
+- Input sanitization
+- Rate limiting
+- Prompt injection protection
+- GDPR compliance basics
+
+---
+
+## 🚀 ADVANCED FEATURES
+
+Include:
+
+- Session memory (short-term context)
+- Lead capture (email inside chat)
+- Webhooks support
+- WooCommerce integration (optional)
+- Multi-site SaaS-ready structure
+
+---
+
+## 🛠️ TECH STACK
+
+Backend:
+- FastAPI (preferred)
+- PostgreSQL
+- Vector DB (Chroma or Pinecone)
+
+AI Tools:
+- LangChain or LlamaIndex
+
+---
+
+## 📦 DELIVERABLES
+
+Generate:
+
+### 1. WordPress Plugin Structure:
+- Main plugin file
+- Admin dashboard
+- Settings pages
+- Frontend chatbot widget
+
+### 2. Backend API:
+- FastAPI project
+- Routes:
+  - /chat
+  - /train
+  - /upload
+
+### 3. RAG Implementation:
+- Embeddings
+- Retrieval system
+
+### 4. Example Config File
+
+---
+
+## ⚠️ IMPORTANT RULES
+
+- Follow WordPress coding standards
+- Code must be clean, modular, scalable
+- Do NOT build everything inside WordPress
+- Separate frontend and AI logic
+
+---
+
+## 🎯 FINAL GOAL
+
+Deliver a working MVP that can:
+- Be installed as a WordPress plugin
+- Connect to backend API
+- Train on documents
+- Answer questions accurately
+
+---
+
+Start by generating:
+
+1. Folder structure (plugin + backend)
+2. Then generate code step-by-step
+3. Explain briefly each part
+
+
+Confirm understanding and generate ONLY the system architecture and folder structure.
+
+
+
+
+
+
