@@ -145,6 +145,13 @@ class AI_Smart_Chatbot {
     private function get_frontend_settings() {
         return array(
             'position' => get_option('aisc_position', 'bottom-right'),
+            'displayMode' => get_option('aisc_display_mode', 'floating'),
+            'initialState' => get_option('aisc_initial_state', 'closed'),
+            'autoOpenDelay' => get_option('aisc_auto_open_delay', 0),
+            'bounceAnimation' => get_option('aisc_bounce_animation', false),
+            'pulseAnimation' => get_option('aisc_pulse_animation', false),
+            'mobilePosition' => get_option('aisc_mobile_position', 'bottom-center'),
+            'enableMobile' => get_option('aisc_enable_mobile', true),
             'primaryColor' => get_option('aisc_primary_color', '#0073aa'),
             'secondaryColor' => get_option('aisc_secondary_color', '#ffffff'),
             'fontFamily' => get_option('aisc_font_family', 'inherit'),
@@ -152,7 +159,6 @@ class AI_Smart_Chatbot {
             'title' => get_option('aisc_chat_title', 'AI Assistant'),
             'greeting' => get_option('aisc_greeting', 'Hello! How can I help you?'),
             'tone' => get_option('aisc_ai_tone', 'professional'),
-            'widgetStyle' => get_option('aisc_widget_style', 'bubble'),
             'darkMode' => get_option('aisc_dark_mode', false),
         );
     }
@@ -191,8 +197,7 @@ class AI_Smart_Chatbot {
 
         $settings = $this->get_frontend_settings();
         ?>
-        <div id="aisc-widget" class="aisc-widget aisc-<?php echo esc_attr($settings['widgetStyle']); ?>" 
-             data-position="<?php echo esc_attr($settings['position']); ?>">
+        <div id="aisc-widget" class="aisc-widget" data-position="<?php echo esc_attr($settings['position']); ?>">
             <button id="aisc-toggle" class="aisc-toggle" aria-label="<?php esc_attr_e('Open chat', 'ai-smart-chatbot'); ?>">
                 <span class="aisc-icon-chat">💬</span>
                 <span class="aisc-icon-close">✕</span>
@@ -205,12 +210,6 @@ class AI_Smart_Chatbot {
                     <span class="aisc-title"><?php echo esc_html($settings['title']); ?></span>
                 </div>
                 <div id="aisc-messages" class="aisc-messages">
-                    <div class="aisc-message aisc-message-bot">
-                        <div class="aisc-message-content">
-                            <?php echo esc_html($settings['greeting']); ?>
-                        </div>
-                    </div>
-                </div>
                 <div class="aisc-input-container">
                     <input type="text" id="aisc-input" placeholder="<?php esc_attr_e('Type your message...', 'ai-smart-chatbot'); ?>" autocomplete="off">
                     <button id="aisc-send" aria-label="<?php esc_attr_e('Send message', 'ai-smart-chatbot'); ?>">

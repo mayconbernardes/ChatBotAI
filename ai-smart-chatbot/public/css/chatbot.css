@@ -361,3 +361,126 @@
 .aisc-dark-mode .aisc-chat-container {
     background: var(--aisc-bg-dark);
 }
+
+/* Display Modes */
+.aisc-widget.embedded {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.aisc-widget.embedded .aisc-chat-container {
+    position: relative;
+    bottom: auto;
+    right: auto;
+    width: 100%;
+    height: 500px;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+}
+
+.aisc-widget.embedded .aisc-toggle {
+    display: none;
+}
+
+.aisc-widget.embedded .aisc-chat-container {
+    border-radius: var(--aisc-radius);
+}
+
+.aisc-widget.fullscreen .aisc-chat-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    max-height: 100%;
+    border-radius: 0;
+    z-index: 10000;
+}
+
+/* Animations */
+@keyframes aisc-bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+
+.aisc-widget.bounce .aisc-toggle {
+    animation: aisc-bounce 1s ease;
+}
+
+@keyframes aisc-pulse {
+    0% { box-shadow: 0 0 0 0 rgba(0, 115, 170, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(0, 115, 170, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(0, 115, 170, 0); }
+}
+
+.aisc-widget.pulse .aisc-toggle {
+    animation: aisc-pulse 2s infinite;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .aisc-widget.bottom-center-mobile {
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .aisc-widget.fullscreen-mobile .aisc-chat-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        max-width: 100%;
+        max-height: 100%;
+        border-radius: 0;
+    }
+    
+    .aisc-widget.mobile-hidden {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .aisc-chat-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: 100% !important;
+        max-height: 100% !important;
+        bottom: 0 !important;
+        right: 0 !important;
+        border-radius: 0 !important;
+    }
+    
+    .aisc-widget {
+        bottom: 0 !important;
+        right: 0 !important;
+        left: 0 !important;
+    }
+    
+    .aisc-toggle {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        left: auto !important;
+        top: auto !important;
+    }
+}
+
+/* Hide/Show states */
+.aisc-widget.closed .aisc-chat-container {
+    display: none;
+}
+
+.aisc-widget.closed.opened .aisc-chat-container {
+    display: flex;
+}

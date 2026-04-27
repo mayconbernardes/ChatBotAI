@@ -11,6 +11,7 @@
             this.sessionId = this.generateSessionId();
             this.isTyping = false;
             this.isOpen = false;
+            this.greetingMessage = '';
 
             this.init();
         }
@@ -35,16 +36,30 @@
             if (window.aiscData && window.aiscData.settings) {
                 const settings = window.aiscData.settings;
 
+                // Display Mode
+                if (settings.displayMode === 'embedded') {
+                    this.container.addClass('aisc-embedded');
+                } else if (settings.displayMode === 'fullscreen') {
+                    this.container.addClass('aisc-fullscreen');
+                } else {
+                    this.container.addClass('aisc-floating');
+                }
+
+                // Initial State
+                if (settings.initialState === 'closed') {
+                    this.container.addClass('closed');
+                    this.isOpen = false;
+                } else {
+                    this.container.addClass('opened');
+                    this.isOpen = true;
+                }
+
+                // Dark Mode
                 if (settings.darkMode) {
                     this.container.addClass('aisc-dark-mode');
                 }
 
-                if (settings.widgetStyle === 'fullscreen') {
-                    this.container.addClass('aisc-fullscreen');
-                } else if (settings.widgetStyle === 'sidebar') {
-                    this.container.addClass('aisc-sidebar');
-                }
-
+                // Colors
                 if (settings.primaryColor) {
                     document.documentElement.style.setProperty('--aisc-primary', settings.primaryColor);
                     document.documentElement.style.setProperty('--aisc-user-msg', settings.primaryColor);
@@ -55,8 +70,43 @@
                     document.documentElement.style.setProperty('--aisc-bot-msg', settings.secondaryColor);
                 }
 
+                // Font Family
                 if (settings.fontFamily && settings.fontFamily !== 'inherit') {
                     document.documentElement.style.setProperty('--aisc-font', settings.fontFamily);
+                }
+
+                // Animations
+                if (settings.bounceAnimation) {
+                    this.container.addClass('bounce');
+                }
+
+                if (settings.pulseAnimation) {
+                    this.container.addClass('pulse');
+                }
+
+                // Mobile Settings
+                const isMobile = window.innerWidth <= 768;
+                if (isMobile && settings.mobilePosition) {
+                    if (settings.mobilePosition === 'bottom-center') {
+                        this.container.addClass('bottom-center-mobile');
+                    } else if (settings.mobilePosition === 'fullscreen') {
+                        this.container.addClass('fullscreen-mobile');
+                    }
+                }
+
+                // Auto-open delay
+                const autoOpenDelay = parseInt(settings.autoOpenDelay) || 0;
+                if (autoOpenDelay > 0 && settings.initialState !== 'open') {
+                    setTimeout(() => {
+                        if (!this.isOpen) {
+                            this.toggleChat();
+                        }
+                    }, autoOpenDelay * 1000);
+                }
+
+                // Store greeting for display when chat opens
+                if (settings.greeting) {
+                    this.greetingMessage = settings.greeting;
                 }
             }
         }
@@ -64,6 +114,11 @@
         toggleChat() {
             this.isOpen = !this.isOpen;
             this.container.toggleClass('opened', this.isOpen);
+
+            if (this.isOpen && this.greetingMessage) {
+                this.addMessage(this.greetingMessage, 'bot');
+                this.greetingMessage = '';
+            }
 
             if (this.isOpen) {
                 setTimeout(() => this.input.focus(), 300);

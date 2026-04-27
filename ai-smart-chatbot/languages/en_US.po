@@ -58,7 +58,7 @@ return array(
     'retrain_all' => 'Re-train All',
     'clear_kb' => 'Clear Knowledge Base',
     
-    // Design Settings
+// Design Settings
     'widget_style' => 'Widget Style',
     'chat_bubble' => 'Chat Bubble',
     'fullscreen' => 'Fullscreen',
@@ -75,24 +75,22 @@ return array(
     'avatar_url' => 'Avatar URL',
     'enable_dark_mode' => 'Enable dark mode by default',
     
-    // Chat Widget
-    'type_message' => 'Type your message...',
-    'send' => 'Send',
-    'open_chat' => 'Open chat',
-    'send_message' => 'Send message',
-    'error_occurred' => 'Sorry, something went wrong.',
-    'no_information' => "I don't have that information",
-    
-    // Status Messages
-    'upload_success' => 'File uploaded successfully',
-    'upload_error' => 'Error uploading file',
-    'training_success' => 'Training completed successfully',
-    'training_error' => 'Error during training',
-    'saved_success' => 'Settings saved successfully',
-    
-    // Analytics
-    'top_questions' => 'Top Questions',
-    'usage_stats' => 'Usage Statistics',
-    'total_conversations' => 'Total Conversations',
-    'avg_response_time' => 'Avg Response Time',
+    // NEW - Position & Behavior
+    'display_mode' => 'Display Mode',
+    'floating_widget' => 'Floating Widget (chat bubble)',
+    'embedded' => 'Embedded (inside page content)',
+    'initial_state' => 'Initial State',
+    'closed' => 'Closed (only icon visible)',
+    'open' => 'Open (chat visible on load)',
+    'auto_open_delay' => 'Auto-Open Delay',
+    'seconds' => 'seconds (0 = disabled)',
+    'animations' => 'Animations',
+    'bounce_animation' => 'Bounce animation on page load',
+    'pulse_animation' => 'Pulse notification animation on icon',
+    'mobile_behavior' => 'Mobile Behavior',
+    'mobile_position' => 'Mobile Position',
+    'bottom_center' => 'Bottom Center',
+    'same_as_desktop' => 'Same as desktop',
+    'enable_on_mobile' => 'Enable on Mobile',
+    'show_chatbot_on_mobile' => 'Show chatbot on mobile devices',
 );

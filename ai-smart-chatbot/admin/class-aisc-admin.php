@@ -272,15 +272,25 @@ class AISC_Admin {
                 <input type="hidden" name="action" value="aisc_save_settings">
                 <?php wp_nonce_field('aisc_save_settings'); ?>
                 
+                <h2><?php esc_html_e('Chat Widget Position & Behavior', 'ai-smart-chatbot'); ?></h2>
                 <table class="form-table">
                     <tr>
-                        <th><?php esc_html_e('Widget Style', 'ai-smart-chatbot'); ?></th>
+                        <th><?php esc_html_e('Display Mode', 'ai-smart-chatbot'); ?></th>
                         <td>
-                            <select name="aisc_widget_style">
-                                <option value="bubble" <?php selected(get_option('aisc_widget_style'), 'bubble'); ?>><?php esc_html_e('Chat Bubble', 'ai-smart-chatbot'); ?></option>
-                                <option value="fullscreen" <?php selected(get_option('aisc_widget_style'), 'fullscreen'); ?>><?php esc_html_e('Fullscreen', 'ai-smart-chatbot'); ?></option>
-                                <option value="sidebar" <?php selected(get_option('aisc_widget_style'), 'sidebar'); ?>><?php esc_html_e('Sidebar', 'ai-smart-chatbot'); ?></option>
-                            </select>
+                            <fieldset>
+                                <label>
+                                    <input type="radio" name="aisc_display_mode" value="floating" <?php checked(get_option('aisc_display_mode', 'floating'), 'floating'); ?>>
+                                    <?php esc_html_e('Floating Widget (chat bubble)', 'ai-smart-chatbot'); ?>
+                                </label><br>
+                                <label>
+                                    <input type="radio" name="aisc_display_mode" value="embedded" <?php checked(get_option('aisc_display_mode'), 'embedded'); ?>>
+                                    <?php esc_html_e('Embedded (inside page content)', 'ai-smart-chatbot'); ?>
+                                </label><br>
+                                <label>
+                                    <input type="radio" name="aisc_display_mode" value="fullscreen" <?php checked(get_option('aisc_display_mode'), 'fullscreen'); ?>>
+                                    <?php esc_html_e('Fullscreen Assistant', 'ai-smart-chatbot'); ?>
+                                </label>
+                            </fieldset>
                         </td>
                     </tr>
                     
@@ -288,7 +298,7 @@ class AISC_Admin {
                         <th><?php esc_html_e('Position', 'ai-smart-chatbot'); ?></th>
                         <td>
                             <select name="aisc_position">
-                                <option value="bottom-right" <?php selected(get_option('aisc_position'), 'bottom-right'); ?>><?php esc_html_e('Bottom Right', 'ai-smart-chatbot'); ?></option>
+                                <option value="bottom-right" <?php selected(get_option('aisc_position', 'bottom-right'), 'bottom-right'); ?>><?php esc_html_e('Bottom Right', 'ai-smart-chatbot'); ?></option>
                                 <option value="bottom-left" <?php selected(get_option('aisc_position'), 'bottom-left'); ?>><?php esc_html_e('Bottom Left', 'ai-smart-chatbot'); ?></option>
                                 <option value="top-right" <?php selected(get_option('aisc_position'), 'top-right'); ?>><?php esc_html_e('Top Right', 'ai-smart-chatbot'); ?></option>
                                 <option value="top-left" <?php selected(get_option('aisc_position'), 'top-left'); ?>><?php esc_html_e('Top Left', 'ai-smart-chatbot'); ?></option>
@@ -296,6 +306,71 @@ class AISC_Admin {
                         </td>
                     </tr>
                     
+                    <tr>
+                        <th><?php esc_html_e('Initial State', 'ai-smart-chatbot'); ?></th>
+                        <td>
+                            <fieldset>
+                                <label>
+                                    <input type="radio" name="aisc_initial_state" value="closed" <?php checked(get_option('aisc_initial_state', 'closed'), 'closed'); ?>>
+                                    <?php esc_html_e('Closed (only icon visible)', 'ai-smart-chatbot'); ?>
+                                </label><br>
+                                <label>
+                                    <input type="radio" name="aisc_initial_state" value="open" <?php checked(get_option('aisc_initial_state'), 'open'); ?>>
+                                    <?php esc_html_e('Open (chat visible on load)', 'ai-smart-chatbot'); ?>
+                                </label>
+                            </fieldset>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <th><?php esc_html_e('Auto-Open Delay', 'ai-smart-chatbot'); ?></th>
+                        <td>
+                            <input type="number" name="aisc_auto_open_delay" value="<?php echo esc_attr(get_option('aisc_auto_open_delay', 0)); ?>" min="0" max="60" step="1" style="width: 80px;">
+                            <span><?php esc_html_e('seconds (0 = disabled)', 'ai-smart-chatbot'); ?></span>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <th><?php esc_html_e('Animations', 'ai-smart-chatbot'); ?></th>
+                        <td>
+                            <fieldset>
+                                <label>
+                                    <input type="checkbox" name="aisc_bounce_animation" value="1" <?php checked(get_option('aisc_bounce_animation'), 1); ?>>
+                                    <?php esc_html_e('Bounce animation on page load', 'ai-smart-chatbot'); ?>
+                                </label><br>
+                                <label>
+                                    <input type="checkbox" name="aisc_pulse_animation" value="1" <?php checked(get_option('aisc_pulse_animation'), 1); ?>>
+                                    <?php esc_html_e('Pulse notification animation on icon', 'ai-smart-chatbot'); ?>
+                                </label>
+                            </fieldset>
+                        </td>
+                    </tr>
+                </table>
+                
+                <h2><?php esc_html_e('Mobile Behavior', 'ai-smart-chatbot'); ?></h2>
+                <table class="form-table">
+                    <tr>
+                        <th><?php esc_html_e('Mobile Position', 'ai-smart-chatbot'); ?></th>
+                        <td>
+                            <select name="aisc_mobile_position">
+                                <option value="bottom-center" <?php selected(get_option('aisc_mobile_position', 'bottom-center'), 'bottom-center'); ?>><?php esc_html_e('Bottom Center', 'ai-smart-chatbot'); ?></option>
+                                <option value="fullscreen" <?php selected(get_option('aisc_mobile_position'), 'fullscreen'); ?>><?php esc_html_e('Fullscreen', 'ai-smart-chatbot'); ?></option>
+                                <option value="same" <?php selected(get_option('aisc_mobile_position'), 'same'); ?>><?php esc_html_e('Same as desktop', 'ai-smart-chatbot'); ?></option>
+                            </select>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <th><?php esc_html_e('Enable on Mobile', 'ai-smart-chatbot'); ?></th>
+                        <td>
+                            <input type="checkbox" name="aisc_enable_mobile" value="1" <?php checked(get_option('aisc_enable_mobile', 1), 1); ?>>
+                            <label><?php esc_html_e('Show chatbot on mobile devices', 'ai-smart-chatbot'); ?></label>
+                        </td>
+                    </tr>
+                </table>
+                
+                <h2><?php esc_html_e('Appearance', 'ai-smart-chatbot'); ?></h2>
+                <table class="form-table">
                     <tr>
                         <th><?php esc_html_e('Primary Color', 'ai-smart-chatbot'); ?></th>
                         <td>
@@ -362,6 +437,7 @@ class AISC_Admin {
             'aisc_model',
             'aisc_temperature',
             'aisc_position',
+            'aisc_display_mode',
             'aisc_widget_style',
             'aisc_primary_color',
             'aisc_secondary_color',
@@ -369,12 +445,20 @@ class AISC_Admin {
             'aisc_greeting',
             'aisc_avatar_url',
             'aisc_ai_tone',
-            'aisc_dark_mode'
+            'aisc_dark_mode',
+            'aisc_initial_state',
+            'aisc_auto_open_delay',
+            'aisc_bounce_animation',
+            'aisc_pulse_animation',
+            'aisc_mobile_position',
+            'aisc_enable_mobile'
         );
 
         foreach ($settings as $setting) {
             if (isset($_POST[$setting])) {
                 update_option($setting, sanitize_text_field($_POST[$setting]));
+            } elseif (in_array($setting, array('aisc_dark_mode', 'aisc_bounce_animation', 'aisc_pulse_animation', 'aisc_enable_mobile'))) {
+                update_option($setting, isset($_POST[$setting]) ? 1 : 0);
             }
         }
 
