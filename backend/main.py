@@ -1,12 +1,18 @@
+import sys
+import os
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).parent))
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.middleware.trustedhost import TrustedHostMiddleware
 from fastapi.responses import JSONResponse
 from contextlib import asynccontextmanager
 import logging
+import os
 
 from app.core.config import settings
-from app.api.routes import chat, train, upload, knowledge
+from app.api import chat, train, upload, knowledge
 from app.services.vector_store import VectorStoreService
 
 logging.basicConfig(level=logging.INFO)
