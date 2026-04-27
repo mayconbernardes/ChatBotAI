@@ -129,13 +129,14 @@ class AI_Smart_Chatbot {
 
     private function should_load_assets() {
         global $post;
-        $display_on = get_option('aisc_display_on', array('all'));
+        $display_on = get_option('aisc_display_on', 'all');
         
-        if (in_array('all', $display_on)) {
+        if ($display_on === 'all' || empty($display_on)) {
             return true;
         }
 
         if (is_singular() && $post) {
+            $display_on = is_array($display_on) ? $display_on : array($display_on);
             return in_array($post->ID, $display_on);
         }
 
