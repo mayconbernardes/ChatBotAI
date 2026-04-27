@@ -67,23 +67,45 @@ class AISC_Admin {
                         <th><?php esc_html_e('API Key', 'ai-smart-chatbot'); ?></th>
                         <td>
                             <input type="password" name="aisc_api_key" value="<?php echo esc_attr($api_key); ?>" class="regular-text" placeholder="API key...">
-                            <p class="description" id="api-key-desc"><?php esc_html_e('Get your API key from the provider dashboard', 'ai-smart-chatbot'); ?></p>
                         </td>
                     </tr>
                     <tr>
                         <th><?php esc_html_e('Model', 'ai-smart-chatbot'); ?></th>
                         <td>
                             <select name="aisc_model" id="aisc-model">
+                                <?php if ($provider === 'openai'): ?>
                                 <option value="gpt-4o" <?php selected(get_option('aisc_model'), 'gpt-4o'); ?>>GPT-4o</option>
+                                <option value="gpt-4o-mini" <?php selected(get_option('aisc_model'), 'gpt-4o-mini'); ?>>GPT-4o Mini</option>
                                 <option value="gpt-4-turbo" <?php selected(get_option('aisc_model'), 'gpt-4-turbo'); ?>>GPT-4 Turbo</option>
-                                <option value="gpt-3.5-turbo" <?php selected(get_option('aisc_model', 'gpt-3.5-turbo'), 'gpt-3.5-turbo'); ?>>GPT-3.5 Turbo</option>
+                                <option value="gpt-3.5-turbo" <?php selected(get_option('aisc_model'), 'gpt-3.5-turbo'); ?>>GPT-3.5 Turbo</option>
+                                <?php elseif ($provider === 'google'): ?>
+                                <option value="gemini-1.5-pro" <?php selected(get_option('aisc_model'), 'gemini-1.5-pro'); ?>>Gemini 1.5 Pro</option>
+                                <option value="gemini-1.5-flash" <?php selected(get_option('aisc_model'), 'gemini-1.5-flash'); ?>>Gemini 1.5 Flash</option>
+                                <option value="gemini-1.5-flash-8b" <?php selected(get_option('aisc_model'), 'gemini-1.5-flash-8b'); ?>>Gemini 1.5 Flash 8B</option>
+                                <?php elseif ($provider === 'anthropic'): ?>
+                                <option value="claude-3-5-sonnet-20241022" <?php selected(get_option('aisc_model'), 'claude-3-5-sonnet-20241022'); ?>>Claude 3.5 Sonnet</option>
+                                <option value="claude-3-opus-20240229" <?php selected(get_option('aisc_model'), 'claude-3-opus-20240229'); ?>>Claude 3 Opus</option>
+                                <option value="claude-3-haiku-20240307" <?php selected(get_option('aisc_model'), 'claude-3-haiku-20240307'); ?>>Claude 3 Haiku</option>
+                                <?php elseif ($provider === 'xai'): ?>
+                                <option value="grok-2" <?php selected(get_option('aisc_model'), 'grok-2'); ?>>Grok-2</option>
+                                <option value="grok-2-vision-1212" <?php selected(get_option('aisc_model'), 'grok-2-vision-1212'); ?>>Grok-2 Vision</option>
+                                <option value="grok-beta" <?php selected(get_option('aisc_model'), 'grok-beta'); ?>>Grok Beta</option>
+                                <?php elseif ($provider === 'deepseek'): ?>
+                                <option value="deepseek-chat" <?php selected(get_option('aisc_model'), 'deepseek-chat'); ?>>DeepSeek Chat</option>
+                                <option value="deepseek-coder" <?php selected(get_option('aisc_model'), 'deepseek-coder'); ?>>DeepSeek Coder</option>
+                                <?php elseif ($provider === 'qwen'): ?>
+                                <option value="qwen-plus" <?php selected(get_option('aisc_model'), 'qwen-plus'); ?>>Qwen Plus</option>
+                                <option value="qwen-turbo" <?php selected(get_option('aisc_model'), 'qwen-turbo'); ?>>Qwen Turbo</option>
+                                <option value="qwen-long" <?php selected(get_option('aisc_model'), 'qwen-long'); ?>>Qwen Long</option>
+                                <?php elseif ($provider === 'openrouter'): ?>
+                                <option value="openai/gpt-4o" <?php selected(get_option('aisc_model'), 'openai/gpt-4o'); ?>>GPT-4o (via OpenRouter)</option>
+                                <option value="openai/gpt-4o-mini" <?php selected(get_option('aisc_model'), 'openai/gpt-4o-mini'); ?>>GPT-4o Mini (via OpenRouter)</option>
+                                <option value="anthropic/claude-3.5-sonnet" <?php selected(get_option('aisc_model'), 'anthropic/claude-3.5-sonnet'); ?>>Claude 3.5 Sonnet (via OpenRouter)</option>
+                                <option value="google/gemini-pro-1.5" <?php selected(get_option('aisc_model'), 'google/gemini-pro-1.5'); ?>>Gemini Pro 1.5 (via OpenRouter)</option>
+                                <?php endif; ?>
                             </select>
-                            <p class="description"><?php esc_html_e('Available models depend on provider', 'ai-smart-chatbot'); ?></p>
                         </td>
                     </tr>
-                    <tr>
-                        <th><?php esc_html_e('AI Tone', 'ai-smart-chatbot'); ?></th>
-                        <td>
                             <select name="aisc_ai_tone">
                                 <option value="professional" <?php selected(get_option('aisc_ai_tone', 'professional'), 'professional'); ?>><?php esc_html_e('Professional', 'ai-smart-chatbot'); ?></option>
                                 <option value="friendly" <?php selected(get_option('aisc_ai_tone'), 'friendly'); ?>><?php esc_html_e('Friendly', 'ai-smart-chatbot'); ?></option>

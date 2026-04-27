@@ -56,10 +56,6 @@ class AI_Smart_Chatbot {
     }
 
     public function enqueue_public_assets() {
-        if (!get_option('aisc_enabled', true)) {
-            return;
-        }
-
         wp_enqueue_style(
             'aisc-chatbot',
             AISC_PLUGIN_URL . 'public/css/chatbot.css',
@@ -154,10 +150,6 @@ class AI_Smart_Chatbot {
     }
 
     public function render_chat_widget() {
-        if (!get_option('aisc_enabled', true)) {
-            return;
-        }
-
         $settings = $this->get_frontend_settings();
         ?>
         <div id="aisc-widget" class="aisc-widget" data-position="<?php echo esc_attr($settings['position']); ?>">
