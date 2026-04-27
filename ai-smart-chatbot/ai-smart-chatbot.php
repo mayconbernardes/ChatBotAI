@@ -44,22 +44,14 @@ private function init_hooks() {
         add_action('admin_enqueue_scripts', array($this, 'enqueue_admin_assets'));
         add_action('wp_ajax_aisc_chat', array($this, 'handle_chat'));
         add_action('wp_ajax_nopriv_aisc_chat', array($this, 'handle_chat'));
-        
-        // Try footer first
+        add_shortcode('ai_chatbot', array($this, 'shortcode_handler'));
         add_action('wp_footer', array($this, 'render_chat_widget'), 999);
-        
-        // Fallback: also try wp_print_footer_scripts
-        add_action('wp_print_footer_scripts', array($this, 'render_chat_widget'), 999);
-        
-        // Emergency fallback: wp_head as last resort
-        add_action('wp_head', array($this, 'render_chat_widget_emergency'), 999);
     }
 
-    public function render_chat_widget_emergency() {
-        // Only output if no footer was called
-        if (!did_action('wp_footer')) {
-            $this->render_chat_widget();
-        }
+    public function shortcode_handler($atts) {
+        ob_start();
+        $this->render_chat_widget();
+        return ob_get_clean();
     }
 
     public function force_footer_output() {
